@@ -1,0 +1,32 @@
+package org.example.view;
+
+import java.util.Scanner;
+
+import org.example.service.ServicePeca;
+
+public class ViewCadastrarPeca 
+{
+    static Scanner SC = new Scanner(System.in);
+
+    public static void cadastrarPecaView()
+    {
+        String nome;
+        double estoque;
+        //Exec. 1
+        System.out.println("==============");
+        System.out.println("Cadastrar Peça");
+        System.out.println("==============");
+
+        //Exec. 2
+        System.out.println("Digite o nome da peça: ");
+        nome = SC.nextLine();
+
+        System.out.println("Digite a quantidade em estoque: ");
+        estoque = SC.nextDouble();
+        SC.nextLine();
+
+        //Exec. 3 Chamando a Service
+        String response = ServicePeca.serviceCadastroPeca(nome, estoque)
+
+    }
+}

@@ -1,0 +1,17 @@
+package org.example.view;
+
+import java.util.Scanner;
+
+public class ViewCadastrarPeca 
+{
+    static Scanner SC = new Scanner(System.in);
+    
+    public static void cadastrarPecaView()
+    {
+        System.out.println("==============");
+        System.out.println("Cadastrar Peça");
+        System.out.println("==============");
+
+
+    }
+}
