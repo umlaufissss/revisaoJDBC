@@ -17,7 +17,7 @@ public class Maquina
     public Maquina(String nome, String setor) {
         this.nome = nome;
         this.setor = setor;
-        this.status = "OPERACIONAL";
+        this.status = "status";
     }
 
     public int getId() {
