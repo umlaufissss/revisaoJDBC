@@ -62,23 +62,25 @@ public class ServicePeca
         List<Peca> pecas = new ArrayList<>();
 
         //Receber lista de todas as peças
-        try{
+        try
+        {
             pecas = PecaDAO.listarTudo();
         }
-        catch(SQLException e){
+        catch(SQLException e)
+        {
             System.err.println(e);
         }
 
         //Tratamento de valor nulo
-        if(pecas == null){
-            System.out.println("A lista está vazia");
+        if(pecas.isEmpty())
+        {
             return null;
         }
 
         return pecas;
     }
 
-    public static boolean buscarPorId(int id, double estoque) throws SQLException
+    public static void buscarPorId(int id, double estoque) throws SQLException
     {
         //Procurar por ID
         boolean Nexiste = TecnicoDAO.buscarPorId(id);
@@ -87,7 +89,6 @@ public class ServicePeca
         if(Nexiste)
         {
             System.out.println("Ordem não existe");
-            return false;
         }
         else
         {
@@ -95,10 +96,8 @@ public class ServicePeca
             if(estoque < 0)
             {
                 System.out.println("Quantidade inválida");
-                return false;
             }
         }
-        return true;
     }
 
     public static Map<Peca, OrdemPeca> verificarEstoque()
@@ -116,9 +115,8 @@ public class ServicePeca
         }
 
         //Validação de nulo
-        if(verificar == null)
+        if(verificar.isEmpty())
         {
-            System.out.println("Estoque está vazio");
             return null;
         }
 

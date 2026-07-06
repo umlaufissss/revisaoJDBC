@@ -33,12 +33,9 @@ public class ViewExecutarManutencao
         SC.nextLine();
 
         //Chamar service que irá apenas retornar ordens pendentes
-        ordens = ServiceOrdem.listarPendencias();
+        ordens = ServiceOrdem.listarPendencias();~
 
-        if(ordens == null)
-        {
-            return;
-        }
+        if
 
         //Listagem de ordens pendentes
         System.out.println("=================");
@@ -57,11 +54,6 @@ public class ViewExecutarManutencao
         //Chamando service para verificação e status atual do estoque...
         System.out.println("Verificando o estoque das peças...");
         estoque = ServicePeca.verificarEstoque();
-
-        if(estoque == null)
-        {
-            return;
-        }
 
         //Listagem de ordens de peça
         System.out.println("====================");

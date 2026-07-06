@@ -58,10 +58,7 @@ public class ViewExecutarManutencao
         System.out.println("Verificando o estoque das peças...");
         estoque = ServicePeca.verificarEstoque();
 
-        if(estoque == null)
-        {
-            return;
-        }
+        if()
 
         //Listagem de ordens de peça
         System.out.println("====================");

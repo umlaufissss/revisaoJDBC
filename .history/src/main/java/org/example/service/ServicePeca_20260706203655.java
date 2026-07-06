@@ -70,8 +70,7 @@ public class ServicePeca
         }
 
         //Tratamento de valor nulo
-        if(pecas == null){
-            System.out.println("A lista está vazia");
+        if(pecas.isEmpty()){
             return null;
         }
 
@@ -116,9 +115,8 @@ public class ServicePeca
         }
 
         //Validação de nulo
-        if(verificar == null)
+        if(verificar.isEmpty())
         {
-            System.out.println("Estoque está vazio");
             return null;
         }
 

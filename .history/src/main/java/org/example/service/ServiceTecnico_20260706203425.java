@@ -63,16 +63,15 @@ public class ServiceTecnico
         }
 
         //Validação de nulo
-        if(tecnicos == null)
+        if(tecnicos.isEmpty())
         {
-            System.out.println("A lista está vazia");
             return null;
         }
 
         return tecnicos;
     }
 
-    public static boolean buscarPorId(int id) throws SQLException
+    public static void buscarPorId(int id) throws SQLException
     {
         //Procurar por ID
         boolean Nexiste = TecnicoDAO.buscarPorId(id);
@@ -81,9 +80,7 @@ public class ServiceTecnico
         if(Nexiste)
         {
             System.out.println("Técnico não existe");
-            return false;
         }
-        return true;
     }
 
     

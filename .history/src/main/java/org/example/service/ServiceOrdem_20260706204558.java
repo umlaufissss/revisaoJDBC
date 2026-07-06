@@ -56,7 +56,7 @@ public class ServiceOrdem
         }
 
         //Verificação de resultado nulo
-        if(ordens == null)
+        if(ordens.isEmpty())
         {
             System.out.println("Lista está vazia");
             return null;
@@ -65,7 +65,7 @@ public class ServiceOrdem
         return ordens;
     }
 
-    public static boolean buscarPorId(int id) throws SQLException
+    public static void buscarPorId(int id) throws SQLException
     {
         //Procurar por ID
         boolean Nexiste = OrdemDAO.buscarPorId(id);
@@ -74,8 +74,6 @@ public class ServiceOrdem
         if (Nexiste) 
         {
             System.out.println("Ordem não existe");
-            return false;
         }
-        return true;
     }
 }

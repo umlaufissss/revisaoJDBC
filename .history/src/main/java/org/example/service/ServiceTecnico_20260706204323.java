@@ -63,9 +63,8 @@ public class ServiceTecnico
         }
 
         //Validação de nulo
-        if(tecnicos == null)
+        if(tecnicos.isEmpty())
         {
-            System.out.println("A lista está vazia");
             return null;
         }
 

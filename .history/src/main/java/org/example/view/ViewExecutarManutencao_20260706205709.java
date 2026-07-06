@@ -60,7 +60,7 @@ public class ViewExecutarManutencao
 
         if(estoque == null)
         {
-            return;
+            retur
         }
 
         //Listagem de ordens de peça

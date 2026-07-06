@@ -118,7 +118,6 @@ public class ServicePeca
         //Validação de nulo
         if(verificar == null)
         {
-            System.out.println("Estoque está vazio");
             return null;
         }
 

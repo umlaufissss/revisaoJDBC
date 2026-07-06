@@ -70,8 +70,7 @@ public class ServicePeca
         }
 
         //Tratamento de valor nulo
-        if(pecas == null){
-            System.out.println("A lista está vazia");
+        if(pecas.isEmpty()){
             return null;
         }
 
@@ -87,7 +86,6 @@ public class ServicePeca
         if(Nexiste)
         {
             System.out.println("Ordem não existe");
-            return false;
         }
         else
         {
@@ -95,10 +93,8 @@ public class ServicePeca
             if(estoque < 0)
             {
                 System.out.println("Quantidade inválida");
-                return false;
             }
         }
-        return true;
     }
 
     public static Map<Peca, OrdemPeca> verificarEstoque()
@@ -116,9 +112,8 @@ public class ServicePeca
         }
 
         //Validação de nulo
-        if(verificar == null)
+        if(verificar.isEmpty())
         {
-            System.out.println("Estoque está vazio");
             return null;
         }
 

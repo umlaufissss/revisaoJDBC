@@ -38,7 +38,7 @@ public class ViewAssociarPecas
         //Chamar service que irá apeas retornar ordens pendentes
         ordens = ServiceOrdem.listarPendencias();
 
-        if(ordens == null)
+        if(ordens.isEmpty())
         {
             return;
         }
@@ -125,7 +125,7 @@ public class ViewAssociarPecas
 
         if(option == 1)
         {
-            associarPecasView();
+            
         }
         
         returnToMain.retornoInicio();

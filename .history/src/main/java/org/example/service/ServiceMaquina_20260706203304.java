@@ -41,11 +41,13 @@ public class ServiceMaquina
                 //Mandar para repositório e cadastrar máquina
                 sucesso = MaquinaDAO.cadastrarMaquinaDAO(maquina);
             }
-            catch(SQLException e){
+            catch(SQLException e)
+            {
                 System.err.println(e);
             }
 
-            if(!sucesso){
+            if(!sucesso)
+            {
                 return "Erro! Falha ao inserir no banco de dados!";
             }
 
@@ -58,15 +60,18 @@ public class ServiceMaquina
         List<Maquina> maquinas = new ArrayList<>();
 
         //Receber lista de máquinas operacionais
-        try{
+        try
+        {
             maquinas = MaquinaDAO.listarOperacional();
         }
-        catch(SQLException e){
+        catch(SQLException e)
+        {
             System.err.println(e);
         }
 
         //Tratamento de erro
-        if(maquinas == null){
+        if(maquinas.isEmpty())
+        {
             System.out.println("A lista está vazia!");
             return null;
         }
@@ -80,16 +85,15 @@ public class ServiceMaquina
         MaquinaDAO.atualizarMaquina(id);
     }
 
-    public static boolean buscarPorId(int id) throws SQLException
+    public static void buscarPorId(int id) throws SQLException
     {
         //Procurar por id
         boolean Nexiste = MaquinaDAO.buscarPorId(id);
 
         //Resposta de fracasso
-        if (Nexiste) {
+        if (Nexiste) 
+        {
             System.out.println("Máquina não existe");
-            return false;
         }
-        return true;
     }
 }

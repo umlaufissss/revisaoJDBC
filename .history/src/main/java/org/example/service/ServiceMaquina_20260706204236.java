@@ -66,7 +66,7 @@ public class ServiceMaquina
         }
 
         //Tratamento de erro
-        if(maquinas == null){
+        if(maquinas.isEmpty()){
             System.out.println("A lista está vazia!");
             return null;
         }

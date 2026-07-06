@@ -23,7 +23,7 @@ public class ViewAssociarPecas
     {
         List<OrdemManutencao> ordens;
         List<Peca> pecas;
-        int escolhaOrd, escolhaPec, option;
+        int escolhaOrd, escolhaPec;
         double estoque;
         boolean existe = false;
 
@@ -38,7 +38,7 @@ public class ViewAssociarPecas
         //Chamar service que irá apeas retornar ordens pendentes
         ordens = ServiceOrdem.listarPendencias();
 
-        if(ordens == null)
+        if(ordens.isEmpty())
         {
             return;
         }
@@ -101,16 +101,11 @@ public class ViewAssociarPecas
         //Procurar peça por ID
         try 
         {
-            existe = ServicePeca.buscarPorId(escolhaOrd, estoque);
+            ServicePeca.buscarPorId(escolhaOrd, estoque);
         } 
         catch (SQLException e) 
         {
             System.err.println(e);
-        }
-
-        if(!existe)
-        {
-            return;
         }
 
         //Chamar service para tratar os valores necessários para associar as ordens
@@ -118,15 +113,6 @@ public class ViewAssociarPecas
 
         //Resposta da service de sucesso ou fracasso
         System.out.println(response);
-
-        System.out.println("Gostaria de associar outra peça?");
-        System.out.println("[1] - Sim\n[2] - Não");
-        option = SC.nextInt();
-
-        if(option == 1)
-        {
-            associarPecasView();
-        }
         
         returnToMain.retornoInicio();
     }

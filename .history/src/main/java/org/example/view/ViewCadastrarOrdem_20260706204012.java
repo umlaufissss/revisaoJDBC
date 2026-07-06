@@ -23,7 +23,6 @@ public class ViewCadastrarOrdem
         List<Maquina> maquinas;
         List<Tecnico> tecnicos;
         int escolhaMaq, escolhaTec;
-        boolean existe = false;
 
         //Cabeçalho
         System.out.println("=========================");
@@ -36,10 +35,7 @@ public class ViewCadastrarOrdem
         //Listagem de máquinas operacionais
         maquinas = ServiceMaquina.listarOperacionaisService();
 
-        if(maquinas == null)
-        {
-            return;
-        }
+        if(maquinas.i)
 
         for(Maquina maquina : maquinas)
         {
@@ -55,17 +51,13 @@ public class ViewCadastrarOrdem
         //Procurar máquina por ID
         try
         {
-            existe = ServiceMaquina.buscarPorId(escolhaMaq);
+            ServiceMaquina.buscarPorId(escolhaMaq);
         }
         catch(SQLException e)
         {
             System.err.println(e);
         }
         
-        if(!existe)
-        {
-            return;
-        }
         
         System.out.println("Aperte qualquer tecla para começar a listagem de técnicos: ");
         SC.nextLine();
@@ -85,17 +77,13 @@ public class ViewCadastrarOrdem
         //Procurar técnico por ID
         try
         {
-            existe = ServiceTecnico.buscarPorId(escolhaTec);
+            ServiceTecnico.buscarPorId(escolhaTec);
         }
         catch(SQLException e)
         {
             System.err.println(e);
         }
 
-        if(!existe)
-        {
-            return;
-        }
         //Chamar método para tratar os valores dados para a ordem
         String response = ServiceOrdem.cadastrarOrdemService(escolhaMaq, escolhaTec);
         //Resposta da service de sucesso ou fracasso

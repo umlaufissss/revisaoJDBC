@@ -66,7 +66,7 @@ public class ServiceMaquina
         }
 
         //Tratamento de erro
-        if(maquinas == null){
+        if(maquinas.isEmpty()){
             System.out.println("A lista está vazia!");
             return null;
         }
@@ -80,16 +80,15 @@ public class ServiceMaquina
         MaquinaDAO.atualizarMaquina(id);
     }
 
-    public static boolean buscarPorId(int id) throws SQLException
+    public static void buscarPorId(int id) throws SQLException
     {
         //Procurar por id
         boolean Nexiste = MaquinaDAO.buscarPorId(id);
 
         //Resposta de fracasso
-        if (Nexiste) {
+        if (Nexiste) 
+        {
             System.out.println("Máquina não existe");
-            return false;
         }
-        return true;
     }
 }

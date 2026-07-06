@@ -56,7 +56,7 @@ public class ServiceOrdem
         }
 
         //Verificação de resultado nulo
-        if(ordens == null)
+        if(ordens.isEmpty())
         {
             System.out.println("Lista está vazia");
             return null;
@@ -74,7 +74,6 @@ public class ServiceOrdem
         if (Nexiste) 
         {
             System.out.println("Ordem não existe");
-            return false;
         }
         return true;
     }

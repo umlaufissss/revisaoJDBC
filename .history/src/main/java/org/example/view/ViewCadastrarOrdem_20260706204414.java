@@ -36,7 +36,7 @@ public class ViewCadastrarOrdem
         //Listagem de máquinas operacionais
         maquinas = ServiceMaquina.listarOperacionaisService();
 
-        if(maquinas == null)
+        if(maquinas.isEmpty())
         {
             return;
         }

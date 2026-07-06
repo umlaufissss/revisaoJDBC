@@ -21,27 +21,34 @@ public class ServiceTecnico
         var tecnico = new Tecnico(nome, especialidade);
 
         //Validação se a máquina existe no setor
-        try {
+        try 
+        {
             Nexiste = TecnicoDAO.tecnicoDuplo(tecnico);
         } 
-        catch (SQLException e) {
+        catch (SQLException e) 
+        {
             System.err.println(e);
         }
     
         //Mensagem de duplicação
-        if(!Nexiste){
+        if(!Nexiste)
+        {
             return "Erro! Técnico duplicado, reveja as informações";
         }
         //Retorna mensagem de sucesso ou fracasso;
-        else{
-            try{
+        else
+        {
+            try
+            {
                 sucesso = TecnicoDAO.cadastrarTecnicoDAO(tecnico);
             }
-            catch(SQLException e){
+            catch(SQLException e)
+            {
                 System.err.println(e);
             }
 
-            if(!sucesso){
+            if(!sucesso)
+            {
                 return "Erro! Falha ao inserir no banco de dados!";
             }
 
@@ -63,16 +70,15 @@ public class ServiceTecnico
         }
 
         //Validação de nulo
-        if(tecnicos == null)
+        if(tecnicos.isEmpty())
         {
-            System.out.println("A lista está vazia");
             return null;
         }
 
         return tecnicos;
     }
 
-    public static boolean buscarPorId(int id) throws SQLException
+    public static void buscarPorId(int id) throws SQLException
     {
         //Procurar por ID
         boolean Nexiste = TecnicoDAO.buscarPorId(id);
@@ -81,9 +87,7 @@ public class ServiceTecnico
         if(Nexiste)
         {
             System.out.println("Técnico não existe");
-            return false;
         }
-        return true;
     }
 
     

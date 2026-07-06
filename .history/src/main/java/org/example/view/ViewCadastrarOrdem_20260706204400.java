@@ -36,7 +36,7 @@ public class ViewCadastrarOrdem
         //Listagem de máquinas operacionais
         maquinas = ServiceMaquina.listarOperacionaisService();
 
-        if(maquinas == null)
+        if(maquinas.isEmpty())
         {
             return;
         }
@@ -55,17 +55,13 @@ public class ViewCadastrarOrdem
         //Procurar máquina por ID
         try
         {
-            existe = ServiceMaquina.buscarPorId(escolhaMaq);
+            ServiceMaquina.buscarPorId(escolhaMaq);
         }
         catch(SQLException e)
         {
             System.err.println(e);
         }
         
-        if(!existe)
-        {
-            return;
-        }
         
         System.out.println("Aperte qualquer tecla para começar a listagem de técnicos: ");
         SC.nextLine();
