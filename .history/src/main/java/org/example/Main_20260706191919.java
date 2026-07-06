@@ -13,12 +13,11 @@ import org.example.view.ViewExecutarManutencao;
 
 public class Main 
 {
-   static Scanner SC = ScannerSingleton.getInstance();
-   
    public static void main() 
    {
       System.out.println("Iniciando sistema...");
 
+      Scanner sc = ScannerSingleton.getInstance();
 
       inicio();
    }
@@ -36,8 +35,8 @@ public class Main
       System.out.println("[3] - Cadastrar peça           [4] - Criar Ordem de Manutenção");
       System.out.println("[5] - Associar Peças à Ordem   [6] - Executar Manutenção      ");
       System.out.println("                               [0] - Sair                     ");
-      option = SC.nextInt();
-      SC.nextLine();
+      option = sc.nextInt();
+      sc.nextLine();
 
       switch (option)
       {

@@ -13,12 +13,11 @@ import org.example.view.ViewExecutarManutencao;
 
 public class Main 
 {
-   static Scanner SC = ScannerSingleton.getInstance();
-   
    public static void main() 
    {
       System.out.println("Iniciando sistema...");
 
+      Scanner sc = ScannerSingleton.getInstance();
 
       inicio();
    }

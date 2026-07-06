@@ -8,7 +8,7 @@ import org.example.util.ScannerSingleton;
 public class ViewCadastrarTecnico 
 {
     static Scanner SC = ScannerSingleton.getInstance();
-
+    //Funcionalidade 1
     public static void cadastrarTecnicoView()
     {
         String nome, especialidade;

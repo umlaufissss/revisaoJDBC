@@ -2,7 +2,6 @@ package org.example;
 
 import java.util.Scanner;
 
-import org.example.util.ScannerSingleton;
 import org.example.view.ViewAssociarPecas;
 import org.example.view.ViewCadastrarMaquina;
 import org.example.view.ViewCadastrarOrdem;
@@ -13,7 +12,7 @@ import org.example.view.ViewExecutarManutencao;
 
 public class Main 
 {
-   static Scanner SC = ScannerSingleton.getInstance();
+   static Scanner SC = scanner
    
    public static void main() 
    {
