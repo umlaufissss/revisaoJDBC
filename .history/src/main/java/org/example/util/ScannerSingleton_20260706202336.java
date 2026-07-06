@@ -40,23 +40,8 @@ public class ScannerSingleton
     {
         try
         {
-            int num = SC.nextInt();
+            int num = SC.nextInt()();
             return num;
-        }
-        catch(Exception e)
-        {
-            SC.nextLine();
-            throw e;
-        }
-    }
-
-    //Scanner para variaveis String
-    public String scanString()
-    {
-        try
-        {
-            String str = SC.nextLine();
-            return str;
         }
         catch(Exception e)
         {

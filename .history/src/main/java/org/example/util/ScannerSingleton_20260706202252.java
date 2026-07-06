@@ -20,43 +20,13 @@ public class ScannerSingleton
 
     static Scanner SC = ScannerSingleton.getInstance();
 
-    //Scanner para variaveis double
-    public double scanDouble()
+    //Scanner para váriaveis double
+    public static double scanDouble()
     {
         try
         {
             double num = SC.nextDouble();
             return num;
-        }
-        catch(Exception e)
-        {
-            SC.nextLine();
-            throw e;
-        }
-    }
-
-    //Scanner para variaveis int
-    public int scanInt()
-    {
-        try
-        {
-            int num = SC.nextInt();
-            return num;
-        }
-        catch(Exception e)
-        {
-            SC.nextLine();
-            throw e;
-        }
-    }
-
-    //Scanner para variaveis String
-    public String scanString()
-    {
-        try
-        {
-            String str = SC.nextLine();
-            return str;
         }
         catch(Exception e)
         {

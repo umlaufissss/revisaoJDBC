@@ -51,17 +51,4 @@ public class ScannerSingleton
     }
 
     //Scanner para variaveis String
-    public String scanString()
-    {
-        try
-        {
-            String str = SC.nextLine();
-            return str;
-        }
-        catch(Exception e)
-        {
-            SC.nextLine();
-            throw e;
-        }
-    }
 }

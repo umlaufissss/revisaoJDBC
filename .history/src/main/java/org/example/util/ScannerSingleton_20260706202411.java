@@ -55,8 +55,8 @@ public class ScannerSingleton
     {
         try
         {
-            String str = SC.nextLine();
-            return str;
+            String str = SC.nextInt();
+            return num;
         }
         catch(Exception e)
         {
