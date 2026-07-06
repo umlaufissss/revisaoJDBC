@@ -32,7 +32,7 @@ public class ViewAssociarPecas
         System.out.println("======================");
 
         System.out.println("Aperte qualquer tecla para começar a listagem de ordens de manutenção: ");
-        SC.scanString();
+        SC.str();
 
         //Chamar service que irá apeas retornar ordens pendentes
         ordens = ServiceOrdem.listarPendencias();

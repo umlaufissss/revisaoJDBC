@@ -17,4 +17,8 @@ public class ScannerSingleton
         }
         return uniqueInstance;
     }
+
+    static Scanner SC = ScannerSingleton.getInstance();
+
+    
 }
