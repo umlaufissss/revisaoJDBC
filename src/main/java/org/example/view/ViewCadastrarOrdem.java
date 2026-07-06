@@ -20,6 +20,7 @@ public class ViewCadastrarOrdem
         List<Tecnico> tecnicos;
         int escolhaMaq, escolhaTec;
 
+        //Cabeçalho
         System.out.println("=========================");
         System.out.println("Criar Ordem de Manutenção");
         System.out.println("=========================");
@@ -27,18 +28,21 @@ public class ViewCadastrarOrdem
         System.out.println("Aperte qualquer tecla para começar a listagem de máquinas: ");
         SC.nextLine();
 
+        //Listagem de máquinas operacionais
         maquinas = ServiceMaquina.listarOperacionaisService();
 
         for(Maquina maquina : maquinas)
         {
-            System.out.println("============== ID:" + maquina.getId()+ "\nNome: " + maquina.getNome() + "\nSetor: " + maquina.getSetor());
+            System.out.println("============== ID:" + maquina.getId()
+            + "\nNome: " + maquina.getNome() 
+            + "\nSetor: " + maquina.getSetor());
         }
 
         System.out.println("Escolha a máquina por ID: ");
         escolhaMaq = SC.nextInt();
         SC.nextLine();
 
-        //Verificação de que o indice existe
+        //Procurar máquina por ID
         try
         {
             ServiceMaquina.buscarPorId(escolhaMaq);
@@ -52,6 +56,7 @@ public class ViewCadastrarOrdem
         System.out.println("Aperte qualquer tecla para começar a listagem de técnicos: ");
         SC.nextLine();
 
+        //Listagem de técnicos
         tecnicos = ServiceTecnico.listarTodos();
 
         for(Tecnico tecnico : tecnicos)
@@ -63,7 +68,7 @@ public class ViewCadastrarOrdem
         escolhaTec = SC.nextInt();
         SC.nextLine();
 
-        //Verificação de que o indice existe
+        //Procurar técnico por ID
         try
         {
             ServiceTecnico.buscarPorId(escolhaTec);
@@ -73,7 +78,9 @@ public class ViewCadastrarOrdem
             System.err.println(e);
         }
 
+        //Chamar método para tratar os valores dados para a ordem
         String response = ServiceOrdem.cadastrarOrdemService(escolhaMaq, escolhaTec);
+        //Resposta da service de sucesso ou fracasso
         System.out.println(response);
     }
 }

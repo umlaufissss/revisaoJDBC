@@ -72,6 +72,7 @@ public class ViewExecutarManutencao
                 System.err.println(e);
             }
             
+            //Resposta da service de sucesso ou fracasso
             System.out.println("Status do estoque: " + response + "\n");
         }
     }

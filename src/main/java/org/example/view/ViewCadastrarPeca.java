@@ -12,12 +12,12 @@ public class ViewCadastrarPeca
     {
         String nome;
         double estoque;
-        //Exec. 1
+        //Cabeçalho
         System.out.println("==============");
         System.out.println("Cadastrar Peça");
         System.out.println("==============");
 
-        //Exec. 2
+        //Requere os valores necessários para cadastrar uma peça
         System.out.println("Digite o nome da peça: ");
         nome = SC.nextLine();
 
@@ -25,9 +25,10 @@ public class ViewCadastrarPeca
         estoque = SC.nextDouble();
         SC.nextLine();
 
-        //Exec. 3 Chamando a Service
+        //Chamar service que irá tratar os valores para cadastrar a peça
         String response = ServicePeca.serviceCadastroPeca(nome, estoque);
 
+        //Resposta da service de sucesso ou fracasso
         System.out.println(response);
 
     }

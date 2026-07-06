@@ -93,8 +93,10 @@ public class ViewAssociarPecas
             System.err.println(e);
         }
 
+        //Chamar service para tratar os valores necessários para associar as ordens
         String response = ServiceOrdemPeca.serviceAssociarOrdem(escolhaOrd, escolhaPec, estoque);
 
+        //Resposta da service de sucesso ou fracasso
         System.out.println(response);
         
     }

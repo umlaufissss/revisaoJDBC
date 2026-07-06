@@ -12,21 +12,22 @@ public class ViewCadastrarTecnico
     {
         String nome, especialidade;
 
-        //Exec. 1
+        //Cabeçalho
         System.out.println("=================");
         System.out.println("Cadastrar Técnico");
         System.out.println("=================");
 
-        //Exec. 2
+        //Requere os valores necessários para cadastrar um técnico
         System.out.println("Digite o nome do técnico: ");
         nome = SC.nextLine();
 
         System.out.println("Digite a especialidade do técnico: ");
         especialidade = SC.nextLine();
 
-        //Exec.3 Chamando Service
+        //Chamar método para tratar os valores dados para cadastrar um técnico
         String response = ServiceTecnico.cadastrarTecnico(nome, especialidade);
 
+        //Resposta da service de sucesso ou fracasso
         System.out.println(response);
     }
 }

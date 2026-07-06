@@ -12,21 +12,22 @@ public class ViewCadastrarMaquina
     {
         String nome, setor;
 
-        //Exec. 1
+        //Cabeçalho
         System.out.println("=================");
         System.out.println("Cadastrar Maquina");
         System.out.println("=================");
 
-        //Exec. 2
+        //Requere os valores necessários para cadastrar uma máquina
         System.out.println("Digite o nome da máquina: ");
         nome = SC.nextLine();
 
         System.out.println("Digite o setor da máquina: ");
         setor = SC.nextLine();
 
-        //Exec.3 Chamando Service
+        //Chama service que irá tratar os valores para cadastrar a máquina
         String response = ServiceMaquina.serviceCadastrarMaquina(nome, setor);
 
+        //Resposta da service de sucesso ou fracasso
         System.out.println(response);
     }
 }
