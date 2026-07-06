@@ -1,0 +1,7 @@
+package org.example.util;
+
+public class ReturnToMain 
+{
+    private static Retur return;
+
+}
