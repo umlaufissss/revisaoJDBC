@@ -14,14 +14,14 @@ public class OrdemManutencao
         this.id = id;
         this.idMaquina = idMaquina;
         this.idTecnico = idTecnico;
-        this.dataSolicitacao = LocalDate.now();
+        this.dataSolicitacao = dataSolicitacao;
         this.status = "PENDENTE";
     }
 
-    public OrdemManutencao(int idMaquina, int idTecnico) {
+    public OrdemManutencao(int idMaquina, int idTecnico, LocalDate dataSolicitacao, String status) {
         this.idMaquina = idMaquina;
         this.idTecnico = idTecnico;
-        this.dataSolicitacao = LocalDate.now();
+        this.dataSolicitacao = ;
         this.status = "PENDENTE";
     }
 

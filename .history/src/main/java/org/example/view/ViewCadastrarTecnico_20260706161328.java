@@ -1,0 +1,32 @@
+package org.example.view;
+
+import java.util.Scanner;
+
+import org.example.service.ServiceTecnico;
+
+public class ViewCadastrarTecnico 
+{
+    static Scanner SC = new Scanner(System.in);
+    //Funcionalidade 1
+    public static void cadastrarTecnicoView()
+    {
+        String nome, especialidade;
+
+        //Cabeçalho
+        System.out.println("=================");
+        System.out.println("Cadastrar Técnico");
+        System.out.println("=================");
+
+        //Requere os valores necessários para cadastrar uma máquina
+        System.out.println("Digite o nome do técnico: ");
+        nome = SC.nextLine();
+
+        System.out.println("Digite a especialidade do técnico: ");
+        especialidade = SC.nextLine();
+
+        //Exec.3 Chamando Service
+        String response = ServiceTecnico.cadastrarTecnico(nome, especialidade);
+
+        System.out.println(response);
+    }
+}

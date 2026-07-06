@@ -10,7 +10,8 @@ public class OrdemManutencao
     private LocalDate dataSolicitacao;
     private String status;
 
-    public OrdemManutencao(int id, int idMaquina, int idTecnico, LocalDate dataSolicitacao, String status) {
+    public OrdemManutencao(int id, int idMaquina, int idTecnico) 
+    {
         this.id = id;
         this.idMaquina = idMaquina;
         this.idTecnico = idTecnico;
@@ -18,7 +19,8 @@ public class OrdemManutencao
         this.status = "PENDENTE";
     }
 
-    public OrdemManutencao(int idMaquina, int idTecnico) {
+    public OrdemManutencao(int idMaquina, int idTecnico) 
+    {
         this.idMaquina = idMaquina;
         this.idTecnico = idTecnico;
         this.dataSolicitacao = LocalDate.now();

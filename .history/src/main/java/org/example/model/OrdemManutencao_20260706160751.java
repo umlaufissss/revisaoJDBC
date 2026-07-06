@@ -18,7 +18,7 @@ public class OrdemManutencao
         this.status = "PENDENTE";
     }
 
-    public OrdemManutencao(int idMaquina, int idTecnico) {
+    public OrdemManutencao(int idMaquina, int idTecnico {
         this.idMaquina = idMaquina;
         this.idTecnico = idTecnico;
         this.dataSolicitacao = LocalDate.now();

@@ -1,6 +1,7 @@
 package org.example.service;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +12,7 @@ public class ServiceOrdem
 {
     public static String cadastrarOrdemService(int maquina, int tecnico)
     {
+        LocalDate data_solicitacao = LocalDate.now();
         boolean sucesso = false;
 
         var ordem = new OrdemManutencao(maquina, tecnico);
