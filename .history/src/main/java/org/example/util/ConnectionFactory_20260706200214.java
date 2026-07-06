@@ -23,7 +23,7 @@ public class ConnectionFactory
     private static final String USER = "root";
     private static final String PASSWORD = "mysqlPW";
 
-    public Connection Conexao() throws SQLException
+    public static Connection Conexao() throws SQLException
     {
         return DriverManager.getConnection(URL, USER, PASSWORD);
     }

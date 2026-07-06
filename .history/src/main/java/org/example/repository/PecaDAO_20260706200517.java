@@ -21,7 +21,7 @@ public class PecaDAO
                 INSERT INTO Peca (nome, estoque) VALUES (?,?)
                 """;
 
-        try(Connection conn = ConnectionFactory.getInstance().Conexao();
+        try(Connection conn = ConnectionFactory.Conexao();
         PreparedStatement stmt = conn.prepareStatement(sql))
         {
             stmt.setString(1, peca.getNome());
@@ -41,7 +41,7 @@ public class PecaDAO
                 SELECT id FROM Peca WHERE nome = ?
                 """;
 
-       try(Connection conn = ConnectionFactory.getInstance().Conexao();
+       try(Connection conn = ConnectionFactory.Conexao();
        PreparedStatement stmt = conn.prepareStatement(sql))
         {
             stmt.setString(1, peca.getNome());
@@ -59,7 +59,7 @@ public class PecaDAO
 
         List<Peca> pecas = new ArrayList<>();
 
-        try(Connection conn = ConnectionFactory.getInstance().Conexao();
+        try(Connection conn = ConnectionFactory.Conexao();
         PreparedStatement stmt = conn.prepareStatement(sql))
         {
             ResultSet rs = stmt.executeQuery();
@@ -83,7 +83,7 @@ public class PecaDAO
         SELECT id FROM Peca WHERE id = ?
         """;
 
-        try(Connection conn = ConnectionFactory.getInstance().Conexao();
+        try(Connection conn = ConnectionFactory.Conexao();
         PreparedStatement stmt = conn.prepareStatement(sql))
         {
             stmt.setInt(1, id);

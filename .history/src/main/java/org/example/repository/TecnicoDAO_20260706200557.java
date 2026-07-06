@@ -77,7 +77,7 @@ public class TecnicoDAO
         SELECT id FROM Tecnico WHERE id = ?
         """;
 
-        try(Connection conn = ConnectionFactory.getInstance().Conexao();
+        try(Connection conn = ConnectionFactory.Conexao();
         PreparedStatement stmt = conn.prepareStatement(sql))
         {
             stmt.setInt(1, id);

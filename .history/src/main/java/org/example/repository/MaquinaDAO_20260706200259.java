@@ -20,7 +20,7 @@ public class MaquinaDAO
         INSERT INTO Maquina (nome, setor, status) VALUES (?,?,?)
                 """;
 
-        try(Connection conn = ConnectionFactory.getInstance().Conexao();
+        try(Connection conn = ConnectionFactory.Conexao();
         PreparedStatement stmt = conn.prepareStatement(sql))
         {
             stmt.setString(1, maquina.getNome());
@@ -39,7 +39,7 @@ public class MaquinaDAO
                 SELECT id FROM Maquina WHERE nome = ? AND setor = ?
                 """;
 
-        try(Connection conn = ConnectionFactory.getInstance().Conexao();
+        try(Connection conn = ConnectionFactory.Conexao();
         PreparedStatement stmt = conn.prepareStatement(sql))
         {
             stmt.setString(1, maquina.getNome());
@@ -59,7 +59,7 @@ public class MaquinaDAO
 
         List<Maquina> maquinas = new ArrayList<>();
 
-        try(Connection conn = ConnectionFactory.getInstance().Conexao();
+        try(Connection conn = ConnectionFactory.Conexao();
         PreparedStatement stmt =  conn.prepareStatement(sql))
         {
             ResultSet rs = stmt.executeQuery();
@@ -84,7 +84,7 @@ public class MaquinaDAO
         WHERE id = ?
         """;
 
-        try(Connection conn = ConnectionFactory.getInstance().Conexao();
+        try(Connection conn = ConnectionFactory.Conexao();
         PreparedStatement stmt = conn.prepareStatement(sql))
         {
             stmt.setInt(1, id);
@@ -99,7 +99,7 @@ public class MaquinaDAO
         SELECT id FROM Maquina WHERE id = ?
         """;
 
-        try(Connection conn = ConnectionFactory.getInstance().Conexao();
+        try(Connection conn = ConnectionFactory.Conexao();
         PreparedStatement stmt = conn.prepareStatement(sql))
         {
             stmt.setInt(1, id);
@@ -116,7 +116,7 @@ public class MaquinaDAO
         UPDATE Maquina SET status = 'OPERACIONAL' WHERE id = ?
         """;
 
-        try(Connection conn = ConnectionFactory.getInstance().Conexao();
+        try(Connection conn = ConnectionFactory.Conexao();
         PreparedStatement stmt = conn.prepareStatement(sql))
         {
             stmt.setInt(1, id);

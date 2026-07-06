@@ -84,7 +84,7 @@ public class MaquinaDAO
         WHERE id = ?
         """;
 
-        try(Connection conn = ConnectionFactory.getInstance().Conexao();
+        try(Connection conn = ConnectionFactory.Conexao();
         PreparedStatement stmt = conn.prepareStatement(sql))
         {
             stmt.setInt(1, id);
@@ -99,7 +99,7 @@ public class MaquinaDAO
         SELECT id FROM Maquina WHERE id = ?
         """;
 
-        try(Connection conn = ConnectionFactory.getInstance().Conexao();
+        try(Connection conn = ConnectionFactory.Conexao();
         PreparedStatement stmt = conn.prepareStatement(sql))
         {
             stmt.setInt(1, id);
@@ -116,7 +116,7 @@ public class MaquinaDAO
         UPDATE Maquina SET status = 'OPERACIONAL' WHERE id = ?
         """;
 
-        try(Connection conn = ConnectionFactory.getInstance().Conexao();
+        try(Connection conn = ConnectionFactory.Conexao();
         PreparedStatement stmt = conn.prepareStatement(sql))
         {
             stmt.setInt(1, id);

@@ -21,7 +21,7 @@ public class OrdemDAO
         (idMaquina, idTecnico, dataSolicitacao, status)
         VALUES (?,?,?,?)""";
 
-        try(Connection conn = ConnectionFactory.getInstance().Conexao();
+        try(Connection conn = ConnectionFactory.Conexao();
         PreparedStatement stmt = conn.prepareStatement(sql))
         {
             stmt.setInt(1, ordem.getIdMaquina());
@@ -85,7 +85,7 @@ public class OrdemDAO
         String sql = """
         UPDATE OrdemManutencao SET status = 'EXECUTADA' WHERE id = ? """;
 
-        try(Connection conn = ConnectionFactory.getInstance().Conexao();
+        try(Connection conn = ConnectionFactory.Conexao();
         PreparedStatement stmt = conn.prepareStatement(sql))
         {
             stmt.setInt(1, id);
