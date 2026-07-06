@@ -15,6 +15,7 @@ public class ServiceOrdem
 
         var ordem = new OrdemManutencao(maquina, tecnico);
 
+        //Mandar para o repositório para cadastrar ordem de manutenção
         try
         {
             sucesso = OrdemDAO.cadastrarOrdem(ordem);
@@ -24,6 +25,7 @@ public class ServiceOrdem
             System.err.println(e);
         }
 
+        //Mensagens de sucesso ou fracasso
         if(sucesso)
         {
             try
@@ -42,6 +44,8 @@ public class ServiceOrdem
     public static List<OrdemManutencao> listarPendencias()
     {
         List<OrdemManutencao> ordens = new ArrayList<>();
+
+        //Receber lista de pendencias
         try
         {
             ordens = OrdemDAO.listarPendencias();
@@ -51,11 +55,10 @@ public class ServiceOrdem
             System.err.println(e);
         }
 
+        //Verificação de resultado nulo
         if(ordens.isEmpty())
         {
             return null;
-
-            //FAZER VERIFICACAO DE RESULTADO NULO
         }
 
         return ordens;
@@ -63,8 +66,10 @@ public class ServiceOrdem
 
     public static void buscarPorId(int id) throws SQLException
     {
+        //Procurar por ID
         boolean Nexiste = OrdemDAO.buscarPorId(id);
 
+        //Resposta de fracasso
         if (Nexiste) 
         {
             System.out.println("Ordem não existe");

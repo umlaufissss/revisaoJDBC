@@ -18,20 +18,19 @@ public class ServicePeca
     public static String serviceCadastroPeca(String nome, double estoque)
     {
         boolean Nexiste = false, sucesso = false;
-        //Exec. 3 Validar nome
+        
+        //Validação dos valores
         if(nome.isBlank() || nome.isEmpty())
         {
             return "Nome é obrigatório";
         }
 
-        //Exec. 3 Validar estoque
         if(estoque < 0)
         {
             return "Estoque deve conter um valor positivo";
         }
 
         var peca = new Peca(nome, estoque);
-        //Exec. 3 Validar duplicidade
         try
         {
             Nexiste = PecaDAO.pecaExiste(peca);
@@ -41,6 +40,7 @@ public class ServicePeca
             System.err.println(e);
         }
 
+        //Retorno de resposta de duplicidade
         if(!Nexiste)
         {
             return "Erro! Essa peça já existe no nosso banco de dados!";
@@ -49,7 +49,6 @@ public class ServicePeca
         {
             try 
             {
-                //Exec. 4
                 sucesso = PecaDAO.cadastrarPecaDAO(peca);
             }
             catch (SQLException e) 
@@ -57,7 +56,7 @@ public class ServicePeca
                 System.err.println(e);
             }
 
-            //Exec. 5
+            //Retorno de resposta de sucesso ou de fracasso
             if(!sucesso)
             {
                 return "Erro! Falha ao inserir no banco de dados!";
@@ -70,6 +69,8 @@ public class ServicePeca
     public static List<Peca> listarTudo()
     {
         List<Peca> pecas = new ArrayList<>();
+
+        //Receber lista de todas as peças
         try
         {
             pecas = PecaDAO.listarTudo();
@@ -79,6 +80,7 @@ public class ServicePeca
             System.err.println(e);
         }
 
+        //Tratamento de valor nulo
         if(pecas.isEmpty())
         {
             return null;
@@ -89,14 +91,17 @@ public class ServicePeca
 
     public static void buscarPorId(int id, double estoque) throws SQLException
     {
+        //Procurar por ID
         boolean Nexiste = TecnicoDAO.buscarPorId(id);
-
+    
+        //Exibir mensagem de erro
         if(Nexiste)
         {
             System.out.println("Ordem não existe");
         }
         else
         {
+            //Validação de estoque
             if(estoque < 0)
             {
                 System.out.println("Quantidade inválida");
@@ -108,6 +113,7 @@ public class ServicePeca
     {
         Map<Peca, OrdemPeca> verificar = new HashMap<>();
 
+        //Verifica estoque, colocando a peça e a ordem lado a lado
         try
         {
             verificar = PecaDAO.verificarEstoque();
@@ -117,6 +123,7 @@ public class ServicePeca
             System.err.println(e);
         }
 
+        //Validação de nulo
         if(verificar.isEmpty())
         {
             return null;

@@ -12,21 +12,22 @@ public class ServiceMaquina
     public static String serviceCadastrarMaquina(String nome, String setor)
     {
 
+        //Tratamento dos valores recebidos
         boolean sucesso = false, Nexiste = false;
-        //Exec. 3 Verificação de Nome
+        
         if(nome.isBlank() || nome.isEmpty())
         {
             return "Nome é obrigatório";
         }
-        //Exec. 3 Verificação de Setor
+        
         else if(setor.isBlank() || setor.isEmpty())
         {
             return "Setor é obrigatório";
         }
 
-        var maquina = new Maquina(nome, setor, "OPERACIONAL");
+        var maquina = new Maquina(nome, setor);
 
-        //Exec. 3 Validação se a máquina existe no setor
+        //Validação se a máquina existe no setor
         try
         {
             Nexiste = MaquinaDAO.maquinaExisteDAO(maquina);
@@ -40,11 +41,12 @@ public class ServiceMaquina
         {
             return "Erro! Máquina já existe neste setor!";
         }
-        //Exec. 5 Mensagem de sucesso
+        //Retornar mensagem de sucesso ou de erro
         else
         {
             try
             {
+                //Mandar para repositório e cadastrar máquina
                 sucesso = MaquinaDAO.cadastrarMaquinaDAO(maquina);
             }
             catch(SQLException e)
@@ -64,6 +66,8 @@ public class ServiceMaquina
     public static List<Maquina> listarOperacionaisService()
     {
         List<Maquina> maquinas = new ArrayList<>();
+
+        //Receber lista de máquinas operacionais
         try
         {
             maquinas = MaquinaDAO.listarOperacional();
@@ -73,8 +77,10 @@ public class ServiceMaquina
             System.err.println(e);
         }
 
+        //Tratamento de erro
         if(maquinas.isEmpty())
         {
+            System.out.println("A lista está vazia!");
             return null;
         }
 
@@ -83,13 +89,16 @@ public class ServiceMaquina
 
     public static void atualizarStatus(int id) throws SQLException
     {
+        //Atualizar status da máquina
         MaquinaDAO.atualizarMaquina(id);
     }
 
     public static void buscarPorId(int id) throws SQLException
     {
+        //Procurar por id
         boolean Nexiste = MaquinaDAO.buscarPorId(id);
 
+        //Resposta de fracasso
         if (Nexiste) 
         {
             System.out.println("Máquina não existe");

@@ -13,7 +13,7 @@ public class ServiceTecnico
     {
         boolean sucesso = false, Nexiste = false;
 
-        //Exec. 3 Verificação de Nome
+        //Verificação de Nome
         if(nome.isBlank() || nome.isEmpty())
         {
             return "Nome é obrigatório";
@@ -21,7 +21,7 @@ public class ServiceTecnico
 
         var tecnico = new Tecnico(nome, especialidade);
 
-        //Exec. 3 Validação se a máquina existe no setor
+        //Validação se a máquina existe no setor
         try 
         {
             Nexiste = TecnicoDAO.tecnicoDuplo(tecnico);
@@ -31,14 +31,14 @@ public class ServiceTecnico
             System.err.println(e);
         }
     
+        //Mensagem de duplicação
         if(!Nexiste)
         {
             return "Erro! Técnico duplicado, reveja as informações";
         }
-        //Exec. 5 Mensagem de sucesso;
+        //Retorna mensagem de sucesso ou fracasso;
         else
         {
-            //Pegando a resposta da DAO;
             try
             {
                 sucesso = TecnicoDAO.cadastrarTecnicoDAO(tecnico);
@@ -48,7 +48,6 @@ public class ServiceTecnico
                 System.err.println(e);
             }
 
-            //Retornando as mensagens de erro ou acerto;
             if(!sucesso)
             {
                 return "Erro! Falha ao inserir no banco de dados!";
@@ -61,6 +60,7 @@ public class ServiceTecnico
     public static List<Tecnico> listarTodos()
     {
         List<Tecnico> tecnicos = new ArrayList<>();
+        //Receber lista de todos os técnicos
         try
         {
             tecnicos = TecnicoDAO.listarTudo();
@@ -70,6 +70,7 @@ public class ServiceTecnico
             System.err.println(e);
         }
 
+        //Validação de nulo
         if(tecnicos.isEmpty())
         {
             return null;
@@ -80,8 +81,10 @@ public class ServiceTecnico
 
     public static void buscarPorId(int id) throws SQLException
     {
+        //Procurar por ID
         boolean Nexiste = TecnicoDAO.buscarPorId(id);
 
+        //Exibir mensagem de erro
         if(Nexiste)
         {
             System.out.println("Técnico não existe");

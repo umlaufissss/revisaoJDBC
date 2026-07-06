@@ -12,6 +12,8 @@ public class ServiceOrdemPeca
         boolean sucesso = false;
 
         var ordemPeca = new OrdemPeca(idOrdem, idPeca, quantidade);
+
+        //Mandar para o repositório para que o banco de dados associe as ordens
         try
         {
             sucesso = OrdemPecaDAO.cadastrarOrdemPeca(ordemPeca);
@@ -21,6 +23,7 @@ public class ServiceOrdemPeca
             System.err.println(e);
         }
 
+        //Retornar mensagem de sucesso ou de fracasso
         if(!sucesso)
         {
             return "Erro! Falha ao inserir no banco de dados!";
