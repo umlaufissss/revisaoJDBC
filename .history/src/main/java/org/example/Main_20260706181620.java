@@ -34,7 +34,7 @@ public class Main
       System.out.println("[1] - Cadastrar máquina        [2] - Cadastrar técnico        ");
       System.out.println("[3] - Cadastrar peça           [4] - Criar Ordem de Manutenção");
       System.out.println("[5] - Associar Peças à Ordem   [6] - Executar Manutenção      ");
-      System.out.println("                               [0] - Sair                     ");
+      System.out.println("[5] - Associar Peças à Ordem   [6] - Executar Manutenção      ");
       option = SC.nextInt();
       SC.nextLine();
 
@@ -50,10 +50,6 @@ public class Main
 
             System.out.println("Saindo da aplicação...");
             System.exit(0);
-         }
-         default -> {
-            System.out.println("Aviso! Opção inválida, não há como prosseguir...");
-            inicio();
          }
       }
    }

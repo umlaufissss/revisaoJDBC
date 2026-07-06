@@ -53,9 +53,11 @@ public class Main
          }
          default -> {
             System.out.println("Aviso! Opção inválida, não há como prosseguir...");
-            inicio();
+            ini
          }
       }
+
+      return 1;
    }
 }
 

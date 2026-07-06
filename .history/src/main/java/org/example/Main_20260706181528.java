@@ -2,12 +2,13 @@ package org.example;
 
 import java.util.Scanner;
 
+import javax.swing.text.View;
+
 import org.example.view.ViewAssociarPecas;
 import org.example.view.ViewCadastrarMaquina;
 import org.example.view.ViewCadastrarOrdem;
 import org.example.view.ViewCadastrarPeca;
 import org.example.view.ViewCadastrarTecnico;
-import org.example.view.ViewExecutarManutencao;
 
 
 public class Main 
@@ -34,7 +35,6 @@ public class Main
       System.out.println("[1] - Cadastrar máquina        [2] - Cadastrar técnico        ");
       System.out.println("[3] - Cadastrar peça           [4] - Criar Ordem de Manutenção");
       System.out.println("[5] - Associar Peças à Ordem   [6] - Executar Manutenção      ");
-      System.out.println("                               [0] - Sair                     ");
       option = SC.nextInt();
       SC.nextLine();
 
@@ -45,16 +45,8 @@ public class Main
          case 3 -> ViewCadastrarPeca.cadastrarPecaView();
          case 4 -> ViewCadastrarOrdem.cadastrarOrdemView();
          case 5 -> ViewAssociarPecas.associarPecasView();
-         case 6 -> ViewExecutarManutencao.executarManutencaoView();
-         case 0 -> {
-
-            System.out.println("Saindo da aplicação...");
-            System.exit(0);
-         }
-         default -> {
-            System.out.println("Aviso! Opção inválida, não há como prosseguir...");
-            inicio();
-         }
+         case 6 -> View
+         case 0 ->
       }
    }
 }

@@ -22,7 +22,7 @@ public class Main
       inicio();
    }
 
-   public static void inicio()
+   public static int inicio()
    {
       int option;
       //Cabeçalho
@@ -52,8 +52,7 @@ public class Main
             System.exit(0);
          }
          default -> {
-            System.out.println("Aviso! Opção inválida, não há como prosseguir...");
-            inicio();
+            System.out.println("Erro, opção inválida");
          }
       }
    }

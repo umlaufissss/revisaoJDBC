@@ -51,10 +51,10 @@ public class Main
             System.out.println("Saindo da aplicação...");
             System.exit(0);
          }
-         default -> {
-            System.out.println("Aviso! Opção inválida, não há como prosseguir...");
-            inicio();
-         }
+         default:
+            {
+               
+            }
       }
    }
 }

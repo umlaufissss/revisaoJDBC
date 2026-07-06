@@ -56,6 +56,8 @@ public class Main
             inicio();
          }
       }
+
+      return 1;
    }
 }
 
